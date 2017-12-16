@@ -1,0 +1,168 @@
+<!-- START contentHeader -->
+<div id="contentHeader">
+
+  <!-- START seachFilter -->
+  <div id="searchFilter" class="col-md-12">
+
+      <table class="table">
+        <tr>
+          <td>
+            <button type="button" class="btn btn-default" ng-click="detailedSearch()">
+            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+            Detailed Search
+            </button>
+          </td>  
+          <td class="width-100-p">
+            <input id="sSearchIn" class="form-control search" type="text" name="keyws" placeholder="Search" ng-model="keyws"/>
+          </td>
+          <td>
+            <button type="button" class="btn btn-default" aria-label="Search" ng-click="searchExe()">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              Search
+            </button>
+          </td>
+          <td id="clear-search" hidden="hidden">
+            <button type="button" class="red btn btn-default" aria-label="Clear Search" ng-click="searchClear()">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              Clear Search
+            </button>
+          </td>
+        </tr>
+      </table>
+      <div id="detailedSearch" class="form-group" hidden="hidden">
+          <table class="table table-sm">
+			<tr>
+              <th>Attribute</th>
+              <th>Search Type</th> 
+              <th>Occures</th>
+            </tr>
+            <tr>
+              <td><input class="form-control " type="text" name="titleKW" placeholder="Title" ng-model="titleKW"/></td>
+              <td><select class="form-control" name="titleST" ng-model="titleST" ng-init="titleST" ng-change="changeVal(this, titleST)" ng-options="t as t for t in types"></select></td>
+              <td><select class="form-control" name="titleOC" ng-model="titleOC" ng-init="titleOC" ng-change="changeVal(this, titleOC)" ng-options="o as o for o in occures"></select></td>
+            </tr>
+            <tr>
+              <td><input class="form-control " type="text" name="authorKW" placeholder="Author" ng-model="authorKW"/></td>
+              <td><select class="form-control" name="authorST" ng-model="authorST" ng-init="authorST" ng-change="changeVal(this, authorST)" ng-options="t as t for t in types"></select></td>
+              <td><select class="form-control" name="authorOC" ng-model="authorOC" ng-init="authorOC" ng-change="changeVal(this, authorOC)" ng-options="o as o for o in occures"></select></td>
+            </tr>
+            <tr>
+              <td><input class="form-control " type="text" name="keywordsKW" placeholder="Keywords" ng-model="keywordsKW"/></td>
+              <td><select class="form-control" name="keywordsST" ng-model="keywordsST" ng-init="keywordsST" ng-change="changeVal(this, keywordsST)" ng-options="t as t for t in types"></select></td>
+              <td><select class="form-control" name="keywordsOC" ng-model="keywordsOC" ng-init="keywordsOC" ng-change="changeVal(this, keywordsOC)" ng-options="o as o for o in occures"></select></td>
+            </tr>
+            <tr>
+              <td><input class="form-control " type="text" name="contentKW" placeholder="Content" ng-model="contentKW"/></td>
+              <td><select class="form-control" name="contentST" ng-model="contentST" ng-init="contentST" ng-change="changeVal(this, contentST)" ng-options="t as t for t in types"></select></td>
+              <td><select class="form-control" name="contentOC" ng-model="contentOC" ng-init="contentOC" ng-change="changeVal(this, contentOC)" ng-options="o as o for o in occures"></select></td>
+            </tr>
+            <tr>
+              <td><input class="form-control " type="text" name="languageKW" placeholder="Language" ng-model="languageKW"/></td>
+              <td><select class="form-control" name="languageST" ng-model="languageST" ng-init="languageST" ng-change="changeVal(this, languageST)" ng-options="t as t for t in types"></select></td>
+              <td><select class="form-control" name="languageOC" ng-model="languageOC" ng-init="languageOC" ng-change="changeVal(this, languageOC)" ng-options="o as o for o in occures"></select></td>
+            </tr>
+          </table>
+        </div>
+	
+  </div>
+  <!-- END seachFilter -->
+  
+  <!-- START categories-filter -->
+  <div id="categories-filter">
+    <table class="table table-sm">
+        <tr>
+          <th class="txt-center">Category:</th>
+          <td><select id="category" class="form-control" ng-model="category" ng-init="category" ng-change="changeCategory(category)" ng-options="c.name for c in categories"></select></td>
+          <th class="txt-center">Sort:</th>
+          <td><select id="sort" class="form-control" ng-model="sort" ng-init="sort" ng-change="changeSort(sort)" ng-options="s as s for s in sorts"></select></td>
+        </tr>
+    </table>
+  </div>
+  <!-- END sidebarCategories -->
+  
+</div>
+<!-- END contentHeader -->
+
+<!-- START content -->
+<div id="content" >
+
+  <!-- START search result -->
+  <pre class="preN">Total items : {{totalItems}} </pre>
+  <pre class="preS" hidden="hidden">Search results - Total items found: {{totalItems}} </pre>
+  <!-- END search result -->
+
+  <!-- START pagination -->
+  <div id="pagination" class="borderTop">
+    <div id="viewby">
+      <select ng-model="itemsPerPage" ng-init="itemsPerPage" ng-change="setItemsPerPage(itemsPerPage)" ng-options="ipp for ipp in ippOptions"></select> 
+      items per page.
+    </div>
+    <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxSize" class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true" force-ellipses="true"></ul>  
+    <a class="mb10 right" >
+	  <button type="button" class="btn btn-default" aria-label="Add" ng-click="openModalBook()">
+	    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	  </button>
+  	</a>
+  </div> 
+  <!-- END pagination -->
+  <!-- START table -->
+  <table class="table table-striped">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Year</th>
+      <th>File Size</th>
+      <th>Action</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat="ebook in ebooks">
+      <td>{{ebook.title}}</td>
+      <td>{{ebook.author}}</td>
+      <td>{{ebook.publicationYear}}</td>
+      <td>{{ebook.fileSize / 1000000|number:1}}MB</td>
+      <td>
+        <button type="button" class="btn btn-default" aria-label="View" ng-click="openModalPDF(ebook)">
+          <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="View" ng-click="openModalBookDetails(ebook)">
+          <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Download" ng-click="downloadBook(ebook)">
+          <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Edit" ng-click="openModalBook(ebook)">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Delete" ng-click="deleteBook(ebook)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </td>
+      <td>{{ebook.highlight}}</td>
+    </tr>
+  </table>
+  <!-- END table -->
+  
+  <!-- START pagination -->
+  <div id="pagination" class="borderBottom">
+    <div id="viewby">
+      <select ng-model="itemsPerPage" ng-init="itemsPerPage" ng-change="setItemsPerPage(itemsPerPage)" ng-options="ipp for ipp in ippOptions"></select> 
+      items per page.
+    </div>
+    <ul uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" max-size="maxSize" class="pagination-sm" items-per-page="itemsPerPage" boundary-links="true" force-ellipses="true"></ul>  
+    <a class="mb10 right" >
+	  <button type="button" class="btn btn-default" aria-label="Add" ng-click="openModalBook()">
+	    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+	  </button>
+  	</a>
+  </div> 
+  <!-- END pagination -->
+  
+  <!-- START search result -->
+  <pre class="preN">Total items : {{totalItems}} </pre>
+  <pre class="preS" hidden="hidden">Search results - Total items found: {{totalItems}} </pre>
+  <!-- END search result -->
+  
+</div>
+<!-- END content -->
+
+

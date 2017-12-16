@@ -1,0 +1,62 @@
+<div class="modal-header">
+  <h3 class="modal-title" translate>Book</h3>
+</div>
+<div class="modal-body">
+  	<form>
+  	  <!-- fieldset ng-if="document.putanjaDoDokumenta!=&quot&quot" class="form-group">
+        <label for="putanja">URL</label>
+        <a ng-href="{{protocol}}{{baseURLHref}}{{baseURLPort}}{{document.putanjaDoDokumenta}}">
+          {{protocol}}{{baseURLHref}}{{baseURLPort}}{{document.putanjaDoDokumenta}}
+        </a>
+      </fieldset -->
+	  <fieldset class="form-group">
+    	<label for="inputFile">Select File</label>
+    	<input type="file" id="inputFile" file-model="book.file">
+  	  </fieldset>
+      <br>
+  	
+  	  <fieldset class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" ng-model="book.title">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" ng-model="book.author">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="keywords">Keywords</label>
+        <input type="text" class="form-control" id="keywords" ng-model="book.keywords">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="publicationYear">Publication Year</label>
+        <input type="text" class="form-control" id="publicationYear" ng-model="book.publicationYear">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="fileSize">FileSize</label>
+        <input type="text" class="form-control" id="fileSize" ng-model="book.file.size">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="mimeName">MimeName</label>
+        <input type="text" class="form-control" id="mimeName" ng-model="book.file.mime">
+      </fieldset>
+      
+      <fieldset class="form-group">
+        <label for="categoryId">Category</label>
+        <select class="form-control" name="categoryId" ng-model="category" ng-options="c.name for c in categories"></select>
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="languageId">Language</label>
+        <select class="form-control" name="languageId" ng-model="language" ng-options="l.name for l in languages"></select>
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="userId">UserId</label>
+        <input type="text" class="form-control" id="userId" ng-model="ULOGOVAN.KORISNIK.Id">
+      </fieldset>
+      
+  	</form>
+  	
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="ok()">OK</button>
+  <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+</div>

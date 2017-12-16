@@ -1,0 +1,37 @@
+<!-- START content -->
+<div id="content" class="col-md-12">
+
+  <h3>
+	  Categories
+	  <a class="mb10 right" >
+   <button type="button" class="btn btn-default" aria-label="Add" ng-click="openModalBook()">
+     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+   </button>
+	  </a>
+  </h3>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Title</th>
+      <th>Action</th>
+    </tr>
+    <tr ng-repeat="cat in categories">
+      <td>{{cat.name}}</td>
+      <td>
+        <button type="button" class="btn btn-default" aria-label="Edit" ng-click="openModalBook(ebook)">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Delete" ng-click="deleteBook(ebook.id)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+</div>
+<!-- END content -->
+	
+
+
+
+

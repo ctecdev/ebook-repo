@@ -1,0 +1,64 @@
+<div class="modal-header">
+  <h3 class="modal-title">{{book.title}} - {{book.author}}</h3>
+</div>
+
+<!-- START modal-body -->
+<div class="modal-body">
+
+    <!-- START bookForm -->
+  	<form name="bookForm">
+  	  <!-- fieldset>
+  	    <label>File: </label>
+          <a type="button" ng-click="openModalPDF(book)">
+            {{book.fileName}} 
+          </a>
+  	    <button type="button" class="btn btn-default" aria-label="View" ng-click="openModalPDF(book)">
+          <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        </button>
+        <br>
+  	  </fieldset>
+      <br -->
+  	
+  	  <fieldset class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" ng-model="book.title" disabled="disabled">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="author">Author</label>
+        <input type="text" class="form-control" id="author" ng-model="book.author" disabled="disabled">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="keywords">Keywords</label>
+        <input type="text" class="form-control" id="keywords" ng-model="book.keywords" disabled="disabled">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="publicationYear">Publication Year</label>
+        <input type="text" class="form-control" id="publicationYear" ng-model="book.publicationYear" disabled="disabled">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="fileSize">FileSize</label>
+        <input type="text" class="form-control" id="fileSize" ng-model="book.file.size" disabled="disabled">
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="mimeName">MimeName</label>
+        <input type="text" class="form-control" id="mimeName" ng-model="book.file.type" disabled="disabled">
+      </fieldset>
+      
+      <fieldset class="form-group">
+        <label for="categoryId">Category</label>
+        <select class="form-control" name="categoryId" ng-model="book.category.id" ng-options="c.id as c.name for c in categories" disabled="disabled"></select>
+      </fieldset>
+      <fieldset class="form-group">
+        <label for="languageId">Language</label>
+        <select class="form-control" name="languageId" ng-model="book.language.id" ng-options="l.id as l.name for l in languages" disabled="disabled"></select>
+      </fieldset>
+      
+  	</form>
+  	<!-- END bookForm -->
+  	
+</div>
+<!-- END modal-body -->
+
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
+</div>
