@@ -1,7 +1,7 @@
 'use strict'
 
 // START UserController
-var UserController = function($scope, Restangular, $http, $uibModal, $location, authService, $log, _){
+var UserController = function($scope, Restangular, $http, $uibModal, $location, $log, _){
 	
 	// START openLoginModal
 	$scope.openLoginModal = function (){
@@ -23,14 +23,14 @@ var UserController = function($scope, Restangular, $http, $uibModal, $location, 
 
 		
 }
-UserController.$inject = ['$scope', 'Restangular', '$http', '$uibModal', '$location', 'authService', '$log', '_'];
+UserController.$inject = ['$scope', 'Restangular', '$http', '$uibModal', '$location', '$log', '_'];
 MyApp.controller('UserController', UserController);
 //END UserController
 
 
 
 //START LoginModalController
-var LoginModalController = function ($scope, Restangular, $http, $uibModalInstance, authService, $log, _){
+var LoginModalController = function ($scope, Restangular, $http, $uibModalInstance, $log, _){
 
 	$scope.modalType= 'login';
 	
@@ -51,7 +51,7 @@ var LoginModalController = function ($scope, Restangular, $http, $uibModalInstan
 	}
 	
 }
-LoginModalController.$inject =  ['$scope', 'Restangular', '$http', '$uibModalInstance', 'authService', '$log', '_'];
+LoginModalController.$inject =  ['$scope', 'Restangular', '$http', '$uibModalInstance', '$log', '_'];
 MyApp.controller('LoginModalController', LoginModalController);
 //END LoginModalController
 
