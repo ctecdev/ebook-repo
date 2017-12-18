@@ -11,10 +11,10 @@ import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
-public class Esd2015FinalApplication {
+public class Ebook_Repo_App {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Esd2015FinalApplication.class, args);
+		SpringApplication.run(Ebook_Repo_App.class, args);
 	}
 	
 	/**
