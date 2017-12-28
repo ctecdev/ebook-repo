@@ -37,3 +37,8 @@ Web App that implements CRUD operations, Hibernate Search and PDF manipulation(s
 ### New ebook
 
 ![new-book](img/new-book.jpg)
+
+
+## Acknowledgments
+
+* This project is developed as part of exam on Faculty of Technical Sciences in Novi Sad
