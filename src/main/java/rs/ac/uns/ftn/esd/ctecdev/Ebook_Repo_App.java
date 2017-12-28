@@ -15,6 +15,7 @@ public class Ebook_Repo_App {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Ebook_Repo_App.class, args);
+		System.out.println("<<<>>>	EBook_Repo_App STARTED	<<<>>>");
 	}
 	
 	/**
